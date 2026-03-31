@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ground Ready</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('hero.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 600px;
+    }
+
+    .hero h2 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border: 2px solid #f5a623;
+      background: #f5a623;
+      border-radius: 5px;
+      color: #000;
+      text-decoration: none;
+      margin-right: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: rgba(245, 166, 35, 0.7);
+      border: 2px solid #f5a623;
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 60px;
+    }
+
+    .card {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: #000;
+      font-size: 14px;
+      color: #777;
+    }
+
+    @media(max-width:900px) {
+      .sections {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>GROUND READY</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>ESSENTIAL KIT. READY TO DEPLOY.</h2>
+      <p>Pre-built kit boxes designed for new army recruits. No guesswork. No wasted time.</p>
+      <a href="#" class="btn">SHOP NOW</a>
+      <a href="#" class="btn">LEARN MORE</a>
+    </div>
+  </section>
+
+  <section class="sections">
+    <div class="card" style="background-image:url('./engineers.jpg')">
+      <h3 class="btn">PREMADE KITS</h3>
+    </div>
+    <div class="card" style="background-image:url('./orders.jpg')">
+      <h3 class="btn">ABOUT</h3>
+    </div>
+    <div class="card" style="background-image:url('./run.jpg')">
+      <h3 class="btn">CONTACT</h3>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Ground Ready. All rights reserved.
+  </footer>
+
+</body>
+
+</html>
