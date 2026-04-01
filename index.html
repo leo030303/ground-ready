@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ground Ready</title>
   <style>
+    /* Your existing styles remain unchanged */
     * {
       margin: 0;
       padding: 0;
@@ -110,6 +111,7 @@
       padding: 40px;
       border-radius: 10px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 2;
     }
 
     .section h2 {
@@ -124,11 +126,41 @@
     }
 
     #about {
-      background: url('./images/orders.jpg') center/cover no-repeat;
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slideshow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
     }
 
     #contact {
-      background: url('./images/stairs.jpg') center/cover no-repeat;
+      background: url('./images/orders.jpg') center/cover no-repeat;
     }
 
     #shop {
@@ -254,7 +286,6 @@
     </nav>
   </header>
 
-  <!-- Rest of your HTML remains unchanged -->
   <section class="hero">
     <div class="section-content">
       <h2>ESSENTIAL KIT. READY TO DEPLOY.</h2>
@@ -306,7 +337,23 @@
     </div>
   </section>
 
+  <section id="contact" class="section">
+    <div class="section-content">
+      <h2>Contact Us</h2>
+      <p>Have any questions? Email us at <strong>contact@groundready.com</strong> or send us a message on Instagram at
+        <strong><a href="https://instagram.com">Instagram page</a></strong>.
+      </p>
+    </div>
+  </section>
+
   <section id="about" class="section">
+    <div class="slideshow">
+      <div class="slide active" style="background-image: url('./images/byrne.jpg');"></div>
+      <div class="slide" style="background-image: url('./images/sully.jpg');"></div>
+      <div class="slide" style="background-image: url('./images/stairs.jpg');"></div>
+      <div class="slide" style="background-image: url('./images/scannel.jpg');"></div>
+      <div class="slide" style="background-image: url('./images/uncle_ben.jpg');"></div>
+    </div>
     <div class="section-content">
       <h2>About Us</h2>
       <p>
@@ -333,18 +380,32 @@
     </div>
   </section>
 
-  <section id="contact" class="section">
-    <div class="section-content">
-      <h2>Contact Us</h2>
-      <p>Have any questions? Email us at <strong>contact@groundready.com</strong> or send us a message on Instagram at
-        <strong><a href="https://instagram.com">Instagram page</a></strong>.
-      </p>
-    </div>
-  </section>
 
   <footer>
     © 2026 Ground Ready. All rights reserved.
   </footer>
+
+  <script>
+    // Slideshow logic
+    document.addEventListener('DOMContentLoaded', function () {
+      const slides = document.querySelectorAll('.slide');
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      // Change slide every 5 seconds
+      setInterval(nextSlide, 5000);
+    });
+  </script>
 
 </body>
 
