@@ -26,14 +26,29 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 5px 20px;
       background: rgba(0, 0, 0, 0.9);
       z-index: 10;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img {
+      width: 40px;
     }
 
     header h1 {
       font-size: 20px;
       letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
     }
 
     nav a {
@@ -113,7 +128,7 @@
     }
 
     #contact {
-      background: url('./images/run.jpg') center/cover no-repeat;
+      background: url('./images/stairs.jpg') center/cover no-repeat;
     }
 
     #shop {
@@ -196,7 +211,23 @@
       color: #777;
     }
 
-    @media(max-width:900px) {
+    @media(max-width: 900px) {
+      header {
+        padding: 5px 10px;
+      }
+
+      .header-left {
+        gap: 10px;
+      }
+
+      nav {
+        margin-left: auto;
+      }
+
+      nav a {
+        margin-left: 10px;
+      }
+
       .shop-container {
         flex-direction: column;
       }
@@ -212,7 +243,10 @@
 <body>
 
   <header>
-    <h1>GROUND READY</h1>
+    <div class="header-left">
+      <img src="images/logo.png" alt="Logo">
+      <h1>GROUND READY</h1>
+    </div>
     <nav>
       <a href="#shop">Shop</a>
       <a href="#about">About</a>
@@ -220,6 +254,7 @@
     </nav>
   </header>
 
+  <!-- Rest of your HTML remains unchanged -->
   <section class="hero">
     <div class="section-content">
       <h2>ESSENTIAL KIT. READY TO DEPLOY.</h2>
